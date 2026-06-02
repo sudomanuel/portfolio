@@ -3,7 +3,6 @@
 import { motion, type Variants } from "framer-motion";
 import Header from "@/components/Header";
 import Logo from "@/components/Logo";
-import { site } from "@/lib/logos";
 
 interface Item {
   school: string;
@@ -11,6 +10,7 @@ interface Item {
   note?: string;
   period: string;
   location: string;
+  mono?: string;
   logo?: string;
 }
 
@@ -21,14 +21,14 @@ const DEGREES: Item[] = [
     note: "Top 10%",
     period: "2021 – Present",
     location: "Lima, Peru",
-    logo: site("uni.edu.pe"),
+    mono: "UNI",
   },
   {
     school: "Hochschule Furtwangen University (HFU)",
     degree: "Exchange Semester (WS 2025/26)",
     period: "Sep 2025 – Mar 2026",
     location: "Villingen-Schwenningen, Germany",
-    logo: site("hs-furtwangen.de"),
+    mono: "HFU",
   },
 ];
 
@@ -38,13 +38,14 @@ const CERTS: Item[] = [
     degree: "Data Analytics Specialization Program",
     period: "Mar 2024 – Sep 2024",
     location: "Remote",
+    mono: "DM",
   },
   {
     school: "ICPNA",
     degree: "Complete English Program — CEFR C1",
     period: "2021 – 2022",
     location: "Lima, Peru",
-    logo: site("icpna.edu.pe"),
+    mono: "IC",
   },
 ];
 
@@ -54,24 +55,22 @@ const LANGUAGES = [
   { name: "German", level: "A1 Beginner · In progress" },
 ];
 
-const stagger: Variants = { animate: { transition: { staggerChildren: 0.07 } } };
+const stagger: Variants = { animate: { transition: { staggerChildren: 0.08 } } };
 const rowV: Variants = {
-  initial: { opacity: 0, y: 8 },
+  initial: { opacity: 0, y: 10 },
   animate: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
 function EduItem({ item }: { item: Item }) {
   return (
     <motion.div variants={rowV} className="group py-6 first:pt-0">
-      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
-        <div className="flex gap-3">
-          <span className="mt-0.5">
-            <Logo src={item.logo} alt={item.school} size={22} />
-          </span>
+      <div className="flex items-start gap-4">
+        <Logo src={item.logo} label={item.school} mono={item.mono} size={40} />
+        <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
           <div>
             <p className="text-sm font-medium text-zinc-100">
               {item.school}
@@ -83,10 +82,10 @@ function EduItem({ item }: { item: Item }) {
             </p>
             <p className="text-sm text-zinc-500 mt-0.5">{item.degree}</p>
           </div>
-        </div>
-        <div className="text-left sm:text-right shrink-0 pl-[34px] sm:pl-0">
-          <p className="text-xs text-zinc-600">{item.period}</p>
-          <p className="text-xs text-zinc-700 mt-0.5">{item.location}</p>
+          <div className="sm:text-right shrink-0">
+            <p className="text-xs text-zinc-600">{item.period}</p>
+            <p className="text-xs text-zinc-700 mt-0.5">{item.location}</p>
+          </div>
         </div>
       </div>
     </motion.div>
@@ -107,7 +106,8 @@ export default function EducationPage() {
         <motion.div
           variants={stagger}
           initial="initial"
-          animate="animate"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-40px" }}
           className="divide-y divide-zinc-900"
         >
           {DEGREES.map((d, i) => (
@@ -125,7 +125,8 @@ export default function EducationPage() {
         <motion.div
           variants={stagger}
           initial="initial"
-          animate="animate"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-40px" }}
           className="divide-y divide-zinc-900"
         >
           {CERTS.map((c, i) => (
@@ -143,7 +144,8 @@ export default function EducationPage() {
         <motion.div
           variants={stagger}
           initial="initial"
-          animate="animate"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-40px" }}
           className="space-y-4"
         >
           {LANGUAGES.map((l, i) => (
