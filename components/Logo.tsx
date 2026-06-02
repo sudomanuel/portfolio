@@ -3,9 +3,9 @@
 import { useState } from "react";
 
 interface Props {
-  /** Image URL (Simple Icons, or a /logos/ path). Omit to show a monogram. */
+  /** Image URL (Simple Icons, Wikimedia, or a /logos/ path). */
   src?: string;
-  /** Used for alt text and to derive a monogram when there is no image. */
+  /** Alt text + source for the monogram fallback. */
   label: string;
   /** Explicit monogram text (e.g. "UNI"). Falls back to initials of label. */
   mono?: string;
@@ -24,22 +24,21 @@ function initials(label: string) {
 }
 
 /**
- * Uniform logo chip. Fixed size keeps everything perfectly aligned.
- * Shows the real logo (grayscale → color on hover) when available, and
- * gracefully falls back to a clean initials monogram if it is missing
- * or fails to load — so a logo never renders broken or misplaced.
+ * Uniform logo tile. Light tile keeps any logo (colored, with or without a
+ * background) legible on the dark page, rendered in grayscale to stay
+ * monochrome. Fixed size means everything lines up. Falls back to a clean
+ * initials monogram if there is no image or it fails to load.
  *
- * Wrap the surrounding row in a `group` class to get the hover reveal.
+ * Wrap the surrounding row in a `group` class for the hover lift.
  */
-export default function Logo({ src, label, mono, size = 38 }: Props) {
+export default function Logo({ src, label, mono, size = 40 }: Props) {
   const [failed, setFailed] = useState(false);
   const showImg = !!src && !failed;
-  const inner = Math.round(size * 0.56);
 
   return (
     <span
       style={{ width: size, height: size }}
-      className="inline-flex items-center justify-center shrink-0 rounded-lg border border-white/10 bg-white/[0.02] overflow-hidden transition-colors duration-300 group-hover:border-white/25"
+      className="inline-flex items-center justify-center shrink-0 rounded-lg bg-zinc-200 overflow-hidden transition-colors duration-300 group-hover:bg-white"
     >
       {showImg ? (
         // eslint-disable-next-line @next/next/no-img-element
@@ -47,11 +46,15 @@ export default function Logo({ src, label, mono, size = 38 }: Props) {
           src={src}
           alt={label}
           onError={() => setFailed(true)}
-          style={{ width: inner, height: inner }}
-          className="object-contain grayscale opacity-70 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+          style={{
+            width: size,
+            height: size,
+            padding: Math.max(4, Math.round(size * 0.17)),
+          }}
+          className="object-contain grayscale"
         />
       ) : (
-        <span className="font-mono text-[10px] font-medium tracking-tight text-zinc-500 transition-colors duration-300 group-hover:text-zinc-200">
+        <span className="font-mono text-[11px] font-semibold tracking-tight text-zinc-500">
           {mono ?? initials(label)}
         </span>
       )}

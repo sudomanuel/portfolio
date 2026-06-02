@@ -3,7 +3,7 @@
 import { motion, type Variants } from "framer-motion";
 import Header from "@/components/Header";
 import Logo from "@/components/Logo";
-import { tech } from "@/lib/logos";
+import { tech, logos } from "@/lib/logos";
 
 interface Entry {
   company: string;
@@ -42,6 +42,7 @@ const ACADEMIC: Entry[] = [
     period: "Dec 2023 – Oct 2024",
     location: "Lima, Peru",
     award: "1st Place · ABET 2024 Fair",
+    logo: logos.uni,
     mono: "UNI",
     bullets: [
       "Launched a prototype providing real-time shuttle locations and departure recommendations from live traffic.",
@@ -63,6 +64,7 @@ const ACADEMIC: Entry[] = [
     role: "Affiliate Member",
     period: "Mar 2023 – Present",
     location: "Lima, Peru",
+    logo: logos.uni,
     mono: "UNI",
     bullets: [
       "Coordinated international project with SeoulTech for an autonomous strawberry-picking prototype; milestones delivered on time.",

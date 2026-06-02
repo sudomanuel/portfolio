@@ -3,7 +3,7 @@
 import { motion, type Variants } from "framer-motion";
 import Header from "@/components/Header";
 import Logo from "@/components/Logo";
-import { tech } from "@/lib/logos";
+import { tech, logos } from "@/lib/logos";
 
 interface Award {
   year: string;
@@ -20,6 +20,7 @@ const AWARDS: Award[] = [
     title: "Mobility & Stay Stipend — Germany Exchange",
     org: "FIEE — UNI",
     location: "Germany",
+    logo: logos.uni,
     mono: "UNI",
   },
   {
@@ -27,6 +28,7 @@ const AWARDS: Award[] = [
     title: "1st Place — ABET Fair 2024",
     org: "Faculty of Electrical and Electronic Engineering (FIEE), UNI",
     location: "Lima, Peru",
+    logo: logos.uni,
     mono: "UNI",
   },
   {
@@ -41,6 +43,7 @@ const AWARDS: Award[] = [
     title: "Top 5 Students — Specialization Ranking",
     org: "National University of Engineering (UNI)",
     location: "Lima, Peru",
+    logo: logos.uni,
     mono: "UNI",
   },
   {
@@ -56,6 +59,7 @@ const AWARDS: Award[] = [
     title: "1st Place — Class Ranking",
     org: "National University of Engineering (UNI)",
     location: "Lima, Peru",
+    logo: logos.uni,
     mono: "UNI",
   },
 ];

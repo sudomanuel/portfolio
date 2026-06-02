@@ -3,6 +3,7 @@
 import { motion, type Variants } from "framer-motion";
 import Header from "@/components/Header";
 import Logo from "@/components/Logo";
+import { logos } from "@/lib/logos";
 
 interface Item {
   school: string;
@@ -21,6 +22,7 @@ const DEGREES: Item[] = [
     note: "Top 10%",
     period: "2021 – Present",
     location: "Lima, Peru",
+    logo: logos.uni,
     mono: "UNI",
   },
   {
@@ -28,6 +30,7 @@ const DEGREES: Item[] = [
     degree: "Exchange Semester (WS 2025/26)",
     period: "Sep 2025 – Mar 2026",
     location: "Villingen-Schwenningen, Germany",
+    logo: logos.hfu,
     mono: "HFU",
   },
 ];

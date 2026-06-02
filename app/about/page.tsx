@@ -3,7 +3,7 @@
 import { motion, type Variants } from "framer-motion";
 import Header from "@/components/Header";
 import Logo from "@/components/Logo";
-import { tech } from "@/lib/logos";
+import { tech, logos } from "@/lib/logos";
 
 const CURRENTLY = [
   {
@@ -15,7 +15,7 @@ const CURRENTLY = [
   {
     text: "Exchange Semester @ HFU Furtwangen",
     sub: "Electronic Engineering · Baden-Württemberg, Germany",
-    logo: undefined,
+    logo: logos.hfu,
     mono: "HFU",
   },
 ];

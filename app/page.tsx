@@ -49,32 +49,15 @@ export default function Home() {
           animate="show"
           className="flex flex-col items-center text-center mb-20"
         >
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, scale: 0.85, filter: "blur(8px)" },
-              show: {
-                opacity: 1,
-                scale: 1,
-                filter: "blur(0px)",
-                transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-              },
-            }}
-          >
-            <Brand size={58} />
+          <motion.div variants={blurUp}>
+            <Brand variant="lg" />
           </motion.div>
 
-          <motion.h1
-            variants={blurUp}
-            className="mt-6 text-lg tracking-tight text-zinc-100"
-          >
-            Manuel Pusma Jurado
-          </motion.h1>
-
-          <motion.p variants={blurUp} className="mt-1.5 text-xs text-zinc-500">
+          <motion.p variants={blurUp} className="mt-4 text-xs text-zinc-500">
             Electronic Engineer · Data Builder
           </motion.p>
 
-          <motion.p variants={blurUp} className="mt-3 text-[11px] text-zinc-600">
+          <motion.p variants={blurUp} className="mt-2 text-[11px] text-zinc-600">
             <LiveClock />
           </motion.p>
         </motion.div>

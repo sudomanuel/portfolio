@@ -11,7 +11,7 @@ export default function Header() {
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       className="mb-16"
     >
-      <Brand size={36} href="/" />
+      <Brand variant="sm" href="/" />
     </motion.header>
   );
 }
