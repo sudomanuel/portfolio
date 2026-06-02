@@ -48,6 +48,7 @@ const CERTS: Item[] = [
     degree: "Complete English Program — CEFR C1",
     period: "2021 – 2022",
     location: "Lima, Peru",
+    logo: logos.icpna,
     mono: "IC",
   },
 ];

@@ -9,6 +9,7 @@ import LiveClock from "@/components/LiveClock";
 const MENU = [
   { label: "about", href: "/about" },
   { label: "experience", href: "/experience" },
+  { label: "projects", href: "/projects" },
   { label: "education", href: "/education" },
   { label: "awards", href: "/awards" },
   { label: "contact", href: "/contact" },

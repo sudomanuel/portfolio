@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import { Database } from "lucide-react";
 import Header from "@/components/Header";
 import Logo from "@/components/Logo";
 import { tech, logos } from "@/lib/logos";
@@ -20,7 +21,14 @@ const CURRENTLY = [
   },
 ];
 
-const STACK = [
+interface Skill {
+  name: string;
+  level: string;
+  logo?: string;
+  mono?: string;
+}
+
+const STACK: Skill[] = [
   { name: "Python", level: "advanced", logo: tech("python") },
   { name: "DuckDB", level: "intermediate", logo: tech("duckdb") },
   { name: "SQL", level: "intermediate", logo: undefined, mono: "SQL" },
@@ -119,7 +127,16 @@ export default function AboutPage() {
               variants={row}
               className="group flex items-center gap-3"
             >
-              <Logo src={s.logo} label={s.name} mono={s.mono} size={36} />
+              {s.name === "SQL" ? (
+                <span
+                  style={{ width: 36, height: 36 }}
+                  className="inline-flex items-center justify-center shrink-0 rounded-lg bg-white"
+                >
+                  <Database size={17} className="text-zinc-700" />
+                </span>
+              ) : (
+                <Logo src={s.logo} label={s.name} mono={s.mono} size={36} />
+              )}
               <div className="min-w-0">
                 <p className="text-sm text-zinc-300 leading-none">{s.name}</p>
                 <p className="text-[10px] text-zinc-600 mt-1.5">{s.level}</p>

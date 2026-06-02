@@ -53,6 +53,7 @@ const ACADEMIC: Entry[] = [
     role: "Volunteer Educator",
     period: "Sep – Oct 2024",
     location: "Lima & Callao, Peru",
+    logo: logos.seoultech,
     mono: "ST",
     bullets: [
       "Delivered cybersecurity & digital literacy workshops to 1,500+ public-school students.",
