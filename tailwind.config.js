@@ -8,12 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "monospace"],
-      },
-      colors: {
-        zinc: {
-          950: "#09090b",
-        },
+        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
       },
     },
   },

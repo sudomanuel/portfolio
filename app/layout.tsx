@@ -6,7 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Manuel Pusma Jurado",
   description:
-    "Electronic Engineer & Data Builder. Final-year at UNI Lima, exchange at HFU Germany.",
+    "Electronic Engineer & Data Builder. Final-year at UNI Lima, exchange at HFU Germany. Open to Working Student / Internship from Nov 2025.",
   keywords: [
     "electronic engineer",
     "data engineering",
@@ -27,7 +27,7 @@ export default function RootLayout({
       lang="en"
       className={`${GeistSans.variable} ${GeistMono.variable}`}
     >
-      <body className="bg-black text-[#ededed] font-sans antialiased">
+      <body className="bg-black text-[#ededed] font-mono antialiased">
         {children}
       </body>
     </html>
