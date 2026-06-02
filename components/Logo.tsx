@@ -38,7 +38,7 @@ export default function Logo({ src, label, mono, size = 40 }: Props) {
   return (
     <span
       style={{ width: size, height: size }}
-      className="inline-flex items-center justify-center shrink-0 rounded-lg bg-zinc-200 overflow-hidden transition-colors duration-300 group-hover:bg-white"
+      className="inline-flex items-center justify-center shrink-0 rounded-lg bg-white overflow-hidden"
     >
       {showImg ? (
         // eslint-disable-next-line @next/next/no-img-element
@@ -54,7 +54,7 @@ export default function Logo({ src, label, mono, size = 40 }: Props) {
           className="object-contain grayscale"
         />
       ) : (
-        <span className="font-mono text-[11px] font-semibold tracking-tight text-zinc-500">
+        <span className="font-mono text-[11px] font-semibold tracking-tight text-zinc-600">
           {mono ?? initials(label)}
         </span>
       )}

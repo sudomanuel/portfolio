@@ -11,8 +11,8 @@
 export const tech = (slug: string) => `https://cdn.simpleicons.org/${slug}`;
 
 export const logos = {
-  // Universidad Nacional de Ingeniería (Lima, Peru) — coat of arms
-  uni: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Escudo1UNI.jpg/320px-Escudo1UNI.jpg",
-  // Hochschule Furtwangen University (Germany)
-  hfu: "https://upload.wikimedia.org/wikipedia/de/thumb/5/57/Hochschule_Furtwangen_HFU_logo.svg/320px-Hochschule_Furtwangen_HFU_logo.svg.png",
+  // Real institution logos, self-hosted in /public/logos/ for reliability.
+  // Sources: UNI coat of arms & HFU official logo (via Wikimedia).
+  uni: "/logos/uni.jpg",
+  hfu: "/logos/hfu.png",
 };
