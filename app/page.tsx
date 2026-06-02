@@ -10,7 +10,6 @@ const MENU = [
   { label: "experience", href: "/experience" },
   { label: "education", href: "/education" },
   { label: "awards", href: "/awards" },
-  { label: "resume", href: "/CV_ENGLISH.pdf", external: true },
   { label: "contact", href: "/contact" },
 ];
 
