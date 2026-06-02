@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
 import LiveClock from "@/components/LiveClock";
@@ -14,12 +14,12 @@ const MENU = [
   { label: "contact", href: "/contact" },
 ];
 
-const list = {
+const list: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.07, delayChildren: 0.45 } },
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, x: -8 },
   show: {
     opacity: 1,

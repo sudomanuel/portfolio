@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Header from "@/components/Header";
 import Logo from "@/components/Logo";
 import { tech, site } from "@/lib/logos";
@@ -30,8 +30,8 @@ const STACK = [
   { name: "SAP", level: "beginner", logo: tech("sap") },
 ];
 
-const stagger = { animate: { transition: { staggerChildren: 0.06 } } };
-const row = {
+const stagger: Variants = { animate: { transition: { staggerChildren: 0.06 } } };
+const row: Variants = {
   initial: { opacity: 0, y: 8 },
   animate: {
     opacity: 1,

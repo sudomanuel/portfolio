@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Header from "@/components/Header";
 import Logo from "@/components/Logo";
 import { site } from "@/lib/logos";
@@ -50,8 +50,8 @@ const AWARDS = [
   },
 ];
 
-const stagger = { animate: { transition: { staggerChildren: 0.06 } } };
-const rowV = {
+const stagger: Variants = { animate: { transition: { staggerChildren: 0.06 } } };
+const rowV: Variants = {
   initial: { opacity: 0, y: 8 },
   animate: {
     opacity: 1,

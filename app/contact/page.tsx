@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Mail, Linkedin, Github, Phone, MapPin, Copy, Check } from "lucide-react";
 import Header from "@/components/Header";
 
 const EMAIL = "mpu55262@stud.hs-furtwangen.de";
 
-const stagger = { animate: { transition: { staggerChildren: 0.07 } } };
-const row = {
+const stagger: Variants = { animate: { transition: { staggerChildren: 0.07 } } };
+const row: Variants = {
   initial: { opacity: 0, y: 8 },
   animate: {
     opacity: 1,

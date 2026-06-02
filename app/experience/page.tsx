@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Header from "@/components/Header";
 import Logo from "@/components/Logo";
 import { site } from "@/lib/logos";
@@ -80,8 +80,8 @@ const ACADEMIC: Entry[] = [
   },
 ];
 
-const stagger = { animate: { transition: { staggerChildren: 0.07 } } };
-const rowV = {
+const stagger: Variants = { animate: { transition: { staggerChildren: 0.07 } } };
+const rowV: Variants = {
   initial: { opacity: 0, y: 10 },
   animate: {
     opacity: 1,
