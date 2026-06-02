@@ -2,16 +2,19 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 
 const LINKS = [
-  { label: "Experience", href: "#experience" },
-  { label: "Education", href: "#education" },
-  { label: "Skills", href: "#skills" },
-  { label: "Awards", href: "#awards" },
-  { label: "Contact", href: "#contact" },
+  { label: "Experience", href: "/experience" },
+  { label: "Education", href: "/education" },
+  { label: "Awards", href: "/awards" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const lastY = useRef(0);
@@ -19,8 +22,8 @@ export default function Navbar() {
   useEffect(() => {
     const handle = () => {
       const y = window.scrollY;
-      setScrolled(y > 30);
-      setHidden(y > lastY.current && y > 120);
+      setScrolled(y > 20);
+      setHidden(y > lastY.current && y > 80);
       lastY.current = y;
     };
     window.addEventListener("scroll", handle, { passive: true });
@@ -31,44 +34,49 @@ export default function Navbar() {
     <AnimatePresence>
       {!hidden && (
         <motion.header
-          key="navbar"
-          initial={{ y: -80, opacity: 0 }}
+          key="nav"
+          initial={{ y: -60, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -80, opacity: 0 }}
-          transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-          className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-            scrolled
-              ? "bg-[#0a0a0f]/75 backdrop-blur-xl border-b border-white/[0.06]"
-              : ""
+          exit={{ y: -60, opacity: 0 }}
+          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className={`fixed top-0 inset-x-0 z-50 transition-colors duration-200 ${
+            scrolled ? "bg-black/70 backdrop-blur-md border-b border-white/[0.06]" : ""
           }`}
         >
-          <nav className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a
-              href="#"
-              className="font-display font-extrabold text-xl text-white hover:text-indigo-300 transition-colors duration-200"
-            >
-              mpj<span className="text-indigo-400">.</span>
-            </a>
+          <nav className="max-w-2xl mx-auto px-6 h-14 flex items-center justify-between">
+            {isHome ? (
+              <Link
+                href="/"
+                className="text-sm font-medium text-[#ededed] hover:text-white transition-colors"
+              >
+                mpj.
+              </Link>
+            ) : (
+              <Link
+                href="/"
+                className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-[#ededed] transition-colors"
+              >
+                <ArrowLeft size={13} />
+                Manuel Pusma Jurado
+              </Link>
+            )}
 
-            <ul className="hidden md:flex items-center gap-7">
+            <ul className="flex items-center gap-6">
               {LINKS.map((l) => (
                 <li key={l.href}>
-                  <a
+                  <Link
                     href={l.href}
-                    className="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200"
+                    className={`text-sm transition-colors ${
+                      pathname === l.href
+                        ? "text-[#ededed]"
+                        : "text-zinc-500 hover:text-zinc-300"
+                    }`}
                   >
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
-
-            <a
-              href="mailto:mpu55262@stud.hs-furtwangen.de"
-              className="hidden md:block text-sm font-semibold px-4 py-2 rounded-lg border border-indigo-500/40 text-indigo-400 hover:bg-indigo-500/10 hover:border-indigo-500/70 transition-all duration-200"
-            >
-              Get in touch
-            </a>
           </nav>
         </motion.header>
       )}
