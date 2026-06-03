@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { Instrument_Serif } from "next/font/google";
+import { Press_Start_2P } from "next/font/google";
 import Backdrop from "@/components/Backdrop";
 import "./globals.css";
 
-const instrumentSerif = Instrument_Serif({
+const pressStart = Press_Start_2P({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-instrument-serif",
+  variable: "--font-press-start",
 });
 
 export const metadata: Metadata = {
@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} ${instrumentSerif.variable}`}
+      className={`${GeistSans.variable} ${GeistMono.variable} ${pressStart.variable}`}
     >
       <body className="bg-black text-[#ededed] font-mono antialiased">
         <Backdrop />
