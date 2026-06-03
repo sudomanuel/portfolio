@@ -16,8 +16,8 @@ interface Props {
 export default function Brand({ variant = "lg", href }: Props) {
   const cls =
     variant === "lg"
-      ? "font-sans font-semibold tracking-tight text-white text-[30px] sm:text-[36px] leading-[1.05]"
-      : "font-sans font-medium tracking-tight text-zinc-300 text-sm";
+      ? "font-display text-white text-[42px] sm:text-[54px] leading-[1.04] tracking-[-0.01em]"
+      : "font-display text-zinc-300 text-[18px]";
 
   if (href) {
     return (

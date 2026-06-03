@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+        display: ["var(--font-instrument-serif)", "ui-serif", "Georgia", "serif"],
       },
     },
   },
